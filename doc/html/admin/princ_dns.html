@@ -12,7 +12,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.19.2',
+        VERSION:     '1.20.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -158,6 +158,14 @@ for the keytab entry that matches the host’s own idea of its name
 (typically the name that <code class="docutils literal"><span class="pre">gethostname()</span></code> returns).  This requires
 krb5-1.10 or later.</p>
 </div>
+<div class="section" id="openldap-ldapsearch-etc">
+<h3>OpenLDAP (ldapsearch, etc.)<a class="headerlink" href="#openldap-ldapsearch-etc" title="Permalink to this headline">¶</a></h3>
+<p>OpenLDAP’s SASL implementation performs reverse DNS lookup in order to
+canonicalize service principal names, even if <strong>rdns</strong> is set to
+<code class="docutils literal"><span class="pre">false</span></code> in the Kerberos configuration.  To disable this behavior,
+add <code class="docutils literal"><span class="pre">SASL_NOCANON</span> <span class="pre">on</span></code> to <code class="docutils literal"><span class="pre">ldap.conf</span></code>, or set the
+<code class="docutils literal"><span class="pre">LDAPSASL_NOCANON</span></code> environment variable.</p>
+</div>
 </div>
 </div>
 
@@ -177,6 +185,7 @@ krb5-1.10 or later.</p>
 <li><a class="reference internal" href="#provisioning-keytabs">Provisioning keytabs</a></li>
 <li><a class="reference internal" href="#specific-application-advice">Specific application advice</a><ul>
 <li><a class="reference internal" href="#secure-shell-ssh">Secure shell (ssh)</a></li>
+<li><a class="reference internal" href="#openldap-ldapsearch-etc">OpenLDAP (ldapsearch, etc.)</a></li>
 </ul>
 </li>
 </ul>
@@ -241,8 +250,8 @@ krb5-1.10 or later.</p>
 
     <div class="footer-wrapper">
         <div class="footer" >
-            <div class="right" ><i>Release: 1.19.2</i><br />
-                &copy; <a href="../copyright.html">Copyright</a> 1985-2021, MIT.
+            <div class="right" ><i>Release: 1.20.1</i><br />
+                &copy; <a href="../copyright.html">Copyright</a> 1985-2022, MIT.
             </div>
             <div class="left">
                 

@@ -141,18 +141,13 @@ usage()
 {
     fprintf(stderr,
             _("Usage: %s [-V] [-l lifetime] [-s start_time] "
-              "[-r renewable_life]"
-              USAGE_BREAK
-              "[-f | -F] [-p | -P] [-n] [-a | -A] [-C] [-E]"
-              USAGE_BREAK
-              "[--request-pac | --no-request-pac] "
-              USAGE_BREAK
-              "[-v] [-R] [-k [-i|-t keytab_file]] [-c cachename]"
-              USAGE_BREAK
-              "[-S service_name] [-I input_ccache] [-T ticket_armor_cache]"
-              USAGE_BREAK
-              "[-X <attribute>[=<value>]] [principal]"
-              "\n\n"), progname);
+              "[-r renewable_life]\n"
+              "\t[-f | -F] [-p | -P] [-n] [-a | -A] [-C] [-E]\n"
+              "\t[--request-pac | --no-request-pac]\n"
+              "\t[-v] [-R] [-k [-i|-t keytab_file]] [-c cachename]\n"
+              "\t[-S service_name] [-I input_ccache] [-T ticket_armor_cache]\n"
+              "\t[-X <attribute>[=<value>]] [principal]\n"
+              "\n"), progname);
 
     fprintf(stderr, "    options:\n");
     fprintf(stderr, _("\t-V verbose\n"));
@@ -510,17 +505,6 @@ k5_begin(struct k_opts *opts, struct k5_data *k5)
                     _("when creating default server principal name"));
             goto cleanup;
         }
-        if (k5->me->realm.data[0] == 0) {
-            ret = krb5_unparse_name(k5->ctx, k5->me, &k5->name);
-            if (ret == 0) {
-                com_err(progname, KRB5_ERR_HOST_REALM_UNKNOWN,
-                        _("(principal %s)"), k5->name);
-            } else {
-                com_err(progname, KRB5_ERR_HOST_REALM_UNKNOWN,
-                        _("for local services"));
-            }
-            goto cleanup;
-        }
     } else if (k5->out_cc != NULL) {
         /* If the output ccache is initialized, use its principal. */
         if (krb5_cc_get_principal(k5->ctx, k5->out_cc, &princ) == 0)
@@ -661,6 +645,8 @@ k5_kinit(struct k_opts *opts, struct k5_data *k5)
     krb5_get_init_creds_opt *options = NULL;
     krb5_boolean pwprompt = FALSE;
     krb5_address **addresses = NULL;
+    krb5_principal cprinc;
+    krb5_ccache mcc = NULL;
     int i;
 
     memset(&my_creds, 0, sizeof(my_creds));
@@ -809,21 +795,29 @@ k5_kinit(struct k_opts *opts, struct k5_data *k5)
     }
 
     if (opts->action != INIT_PW && opts->action != INIT_KT) {
-        ret = krb5_cc_initialize(k5->ctx, k5->out_cc, opts->canonicalize ?
-                                 my_creds.client : k5->me);
+        cprinc = opts->canonicalize ? my_creds.client : k5->me;
+        ret = krb5_cc_new_unique(k5->ctx, "MEMORY", NULL, &mcc);
+        if (!ret)
+            ret = krb5_cc_initialize(k5->ctx, mcc, cprinc);
         if (ret) {
-            com_err(progname, ret, _("when initializing cache %s"),
-                    opts->k5_out_cache_name ? opts->k5_out_cache_name : "");
+            com_err(progname, ret, _("when creating temporary cache"));
             goto cleanup;
         }
         if (opts->verbose)
             fprintf(stderr, _("Initialized cache\n"));
 
-        ret = k5_cc_store_primary_cred(k5->ctx, k5->out_cc, &my_creds);
+        ret = k5_cc_store_primary_cred(k5->ctx, mcc, &my_creds);
         if (ret) {
             com_err(progname, ret, _("while storing credentials"));
             goto cleanup;
         }
+        ret = krb5_cc_move(k5->ctx, mcc, k5->out_cc);
+        if (ret) {
+            com_err(progname, ret, _("while saving to cache %s"),
+                    opts->k5_out_cache_name ? opts->k5_out_cache_name : "");
+            goto cleanup;
+        }
+        mcc = NULL;
         if (opts->verbose)
             fprintf(stderr, _("Stored credentials\n"));
     }
@@ -840,6 +834,8 @@ cleanup:
 #ifndef _WIN32
     kinit_kdb_fini();
 #endif
+    if (mcc != NULL)
+        krb5_cc_destroy(k5->ctx, mcc);
     if (options)
         krb5_get_init_creds_opt_free(k5->ctx, options);
     if (my_creds.client == k5->me)

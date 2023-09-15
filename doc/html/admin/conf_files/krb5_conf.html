@@ -12,7 +12,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.19.2',
+        VERSION:     '1.20.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -563,15 +563,12 @@ is the Kerberos V4 realm name.</dd>
 </div>
 <div class="section" id="domain-realm">
 <span id="id3"></span><h3>[domain_realm]<a class="headerlink" href="#domain-realm" title="Permalink to this headline">¶</a></h3>
-<p>The [domain_realm] section provides a translation from a domain name
-or hostname to a Kerberos realm name.  The tag name can be a host name
-or domain name, where domain names are indicated by a prefix of a
-period (<code class="docutils literal"><span class="pre">.</span></code>).  The value of the relation is the Kerberos realm name
-for that particular host or domain.  A host name relation implicitly
-provides the corresponding domain name relation, unless an explicit domain
-name relation is provided.  The Kerberos realm may be
+<p>The [domain_realm] section provides a translation from hostnames to
+Kerberos realms.  Each tag is a domain name, providing the mapping for
+that domain and all subdomains.  If the tag begins with a period
+(<code class="docutils literal"><span class="pre">.</span></code>) then it applies only to subdomains.  The Kerberos realm may be
 identified either in the <a class="reference internal" href="#realms">realms</a> section or using DNS SRV records.
-Host names and domain names should be in lower case.  For example:</p>
+Tag names should be in lower case.  For example:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">domain_realm</span><span class="p">]</span>
     <span class="n">crash</span><span class="o">.</span><span class="n">mit</span><span class="o">.</span><span class="n">edu</span> <span class="o">=</span> <span class="n">TEST</span><span class="o">.</span><span class="n">ATHENA</span><span class="o">.</span><span class="n">MIT</span><span class="o">.</span><span class="n">EDU</span>
     <span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">mit</span><span class="o">.</span><span class="n">edu</span> <span class="o">=</span> <span class="n">TEST</span><span class="o">.</span><span class="n">ATHENA</span><span class="o">.</span><span class="n">MIT</span><span class="o">.</span><span class="n">EDU</span>
@@ -1328,8 +1325,8 @@ Valid parameters are:</p>
 
     <div class="footer-wrapper">
         <div class="footer" >
-            <div class="right" ><i>Release: 1.19.2</i><br />
-                &copy; <a href="../../copyright.html">Copyright</a> 1985-2021, MIT.
+            <div class="right" ><i>Release: 1.20.1</i><br />
+                &copy; <a href="../../copyright.html">Copyright</a> 1985-2022, MIT.
             </div>
             <div class="left">
                 

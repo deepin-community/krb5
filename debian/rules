@@ -43,7 +43,6 @@ override_dh_auto_configure:
 	dh_auto_configure $(DH_BUILD_OPTS) -- --with-system-et --with-system-ss --disable-rpath  \
 		--enable-shared $(CONFIGURE_LDAP) --without-tcl \
 	--with-system-verto \
-		--libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH) \
 		--sysconfdir=/etc  \
 		--localstatedir=/etc
 
@@ -121,6 +120,10 @@ override_dh_install-arch:
 		debian/krb5-kdc/usr/share/krb5-kdc/kdc.conf.template
 	ln -s /usr/share/krb5-kdc/kdc.conf.template \
 		debian/krb5-kdc/usr/share/doc/krb5-kdc/examples/kdc.conf
+	for I in kdestroy kinit klist kpasswd ksu kadmin ktutil kswitch; do { \
+		mv debian/krb5-user/usr/bin/$$I debian/krb5-user/usr/bin/$$I.mit; \
+		mv debian/krb5-user/usr/share/man/man1/$$I.1 debian/krb5-user/usr/share/man/man1/$$I.mit.1; \
+	} done
 
 override_dh_installinit:
 	# We don't need to override systemd because the systemd behavior is reasonable, and we're just trying to work around issues with error handling in init scripts
@@ -139,14 +142,15 @@ override_dh_makeshlibs:
 
 override_dh_fixperms-arch:
 	dh_fixperms
-	chmod u+s debian/krb5-user/usr/bin/ksu
+	chmod u+s debian/krb5-user/usr/bin/ksu.mit
 	chmod 700 debian/krb5-kdc/var/lib/krb5kdc
 	chmod 700 debian/krb5-kdc/etc/krb5kdc
 
-override_dh_auto_test: 
+override_dh_auto_test:
+	dh_auto_test $(DH_BUILD_OPTS) --no-parallel
 
 %:
-	dh $@ 
+	dh $@
 
 
 #.PHONY: build clean configure binary-indep binary-arch binary install
