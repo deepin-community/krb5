@@ -12,7 +12,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.19.2',
+        VERSION:     '1.20.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -248,6 +248,11 @@ are not allowed as passwords.  The file should contain one string
 per line, with no additional whitespace.  If none is specified or
 if there is no policy assigned to the principal, no dictionary
 checks of passwords will be performed.</dd>
+<dt><strong>disable_pac</strong></dt>
+<dd>(Boolean value.)  If true, the KDC will not issue PACs for this
+realm, and S4U2Self and S4U2Proxy operations will be disabled.
+The default is false, which will permit the KDC to issue PACs.
+New in release 1.20.</dd>
 <dt><strong>encrypted_challenge_indicator</strong></dt>
 <dd>(String.)  Specifies the authentication indicator value that the KDC
 asserts into tickets obtained using FAST encrypted challenge
@@ -1056,8 +1061,8 @@ follows:</p>
 
     <div class="footer-wrapper">
         <div class="footer" >
-            <div class="right" ><i>Release: 1.19.2</i><br />
-                &copy; <a href="../../copyright.html">Copyright</a> 1985-2021, MIT.
+            <div class="right" ><i>Release: 1.20.1</i><br />
+                &copy; <a href="../../copyright.html">Copyright</a> 1985-2022, MIT.
             </div>
             <div class="left">
                 

@@ -12,7 +12,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.19.2',
+        VERSION:     '1.20.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -72,8 +72,8 @@
 <dl class="docutils">
 <dt>Releases:</dt>
 <dd><ul class="first last simple">
-<li>Latest stable: <a class="reference external" href="https://web.mit.edu/kerberos/krb5-1.18/">https://web.mit.edu/kerberos/krb5-1.18/</a></li>
-<li>Supported: <a class="reference external" href="https://web.mit.edu/kerberos/krb5-1.17/">https://web.mit.edu/kerberos/krb5-1.17/</a></li>
+<li>Latest stable: <a class="reference external" href="https://web.mit.edu/kerberos/krb5-1.20/">https://web.mit.edu/kerberos/krb5-1.20/</a></li>
+<li>Supported: <a class="reference external" href="https://web.mit.edu/kerberos/krb5-1.19/">https://web.mit.edu/kerberos/krb5-1.19/</a></li>
 <li>Release cycle: approximately 12 months</li>
 </ul>
 </dd>
@@ -605,6 +605,46 @@ deprecated and removed in future releases.</li>
 (inspired by Heimdal’s kgetcred).</li>
 </ul>
 </div></blockquote>
+<p>Release 1.20</p>
+<ul class="simple">
+<li>Administrator experience:<ul>
+<li>Added a “disable_pac” realm relation to suppress adding PAC
+authdata to tickets, for realms which do not need to support S4U
+requests.</li>
+<li>Most credential cache types will use atomic replacement when a
+cache is reinitialized using kinit or refreshed from the client
+keytab.</li>
+<li>kprop can now propagate databases with a dump size larger than
+4GB, if both the client and server are upgraded.</li>
+<li>kprop can now work over NATs that change the destination IP
+address, if the client is upgraded.</li>
+</ul>
+</li>
+<li>Developer experience:<ul>
+<li>Updated the KDB interface.  The sign_authdata() method is replaced
+with the issue_pac() method, allowing KDB modules to add logon
+info and other buffers to the PAC issued by the KDC.</li>
+<li>Host-based initiator names are better supported in the GSS krb5
+mechanism.</li>
+</ul>
+</li>
+<li>Protocol evolution:<ul>
+<li>Replaced AD-SIGNEDPATH authdata with minimal PACs.</li>
+<li>To avoid spurious replay errors, password change requests will not
+be attempted over UDP until the attempt over TCP fails.</li>
+<li>PKINIT will sign its CMS messages with SHA-256 instead of SHA-1.</li>
+</ul>
+</li>
+<li>Code quality:<ul>
+<li>Updated all code using OpenSSL to be compatible with OpenSSL 3.</li>
+<li>Reorganized the libk5crypto build system to allow the OpenSSL
+back-end to pull in material from the builtin back-end depending
+on the OpenSSL version.</li>
+<li>Simplified the PRNG logic to always use the platform PRNG.</li>
+<li>Converted the remaining Tcl tests to Python.</li>
+</ul>
+</li>
+</ul>
 <p><cite>Pre-authentication mechanisms</cite></p>
 <ul class="simple">
 <li>PW-SALT                                         <span class="target" id="index-11"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc4120.html#section-5.2.7.3"><strong>RFC 4120#section-5.2.7.3</strong></a></li>
@@ -617,13 +657,6 @@ deprecated and removed in future releases.</li>
 <li>S4U-X509-USER                (release 1.8)      <a class="reference external" href="https://msdn.microsoft.com/en-us/library/cc246091">https://msdn.microsoft.com/en-us/library/cc246091</a></li>
 <li>OTP                          (release 1.12)     <a class="reference internal" href="admin/otp.html#otp-preauth"><span class="std std-ref">OTP Preauthentication</span></a></li>
 <li>SPAKE                        (release 1.17)     <a class="reference internal" href="admin/spake.html#spake"><span class="std std-ref">SPAKE Preauthentication</span></a></li>
-</ul>
-<p><cite>PRNG</cite></p>
-<ul class="simple">
-<li>modularity       (release 1.9)</li>
-<li>Yarrow PRNG      (release &lt; 1.10)</li>
-<li>Fortuna PRNG     (release 1.9)       <a class="reference external" href="https://www.schneier.com/book-practical.html">https://www.schneier.com/book-practical.html</a></li>
-<li>OS PRNG          (release 1.10)      OS’s native PRNG</li>
 </ul>
 </div>
 </div>
@@ -676,8 +709,8 @@ deprecated and removed in future releases.</li>
 
     <div class="footer-wrapper">
         <div class="footer" >
-            <div class="right" ><i>Release: 1.19.2</i><br />
-                &copy; <a href="copyright.html">Copyright</a> 1985-2021, MIT.
+            <div class="right" ><i>Release: 1.20.1</i><br />
+                &copy; <a href="copyright.html">Copyright</a> 1985-2022, MIT.
             </div>
             <div class="left">
                 

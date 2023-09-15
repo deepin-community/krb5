@@ -12,7 +12,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.19.2',
+        VERSION:     '1.20.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -281,10 +281,8 @@ The following options are supported by the krb5 mechanism:</p>
 <ul class="simple">
 <li><strong>ccache</strong>: For acquiring initiator credentials, the name of the
 <a class="reference internal" href="../basic/ccache_def.html#ccache-definition"><span class="std std-ref">credential cache</span></a> to which the handle will
-refer.  For storing credentials, the name of the cache where the
-credentials should be stored.  If a collection name is given, the
-primary cache of the collection will be used; this behavior may
-change in future releases to select a cache from the collection.</li>
+refer.  For storing credentials, the name of the cache or collection
+where the credentials will be stored (see below).</li>
 <li><strong>client_keytab</strong>: For acquiring initiator credentials, the name of
 the <a class="reference internal" href="../basic/keytab_def.html#keytab-definition"><span class="std std-ref">keytab</span></a> which will be used, if
 necessary, to refresh the credentials in the cache.</li>
@@ -309,6 +307,14 @@ keytab.  The value may be the name of a principal in the keytab, or
 the empty string.  If the empty string is given, any <code class="docutils literal"><span class="pre">host</span></code>
 service principal in the keytab may be used.  (New in release 1.19.)</li>
 </ul>
+<p>In release 1.20 or later, if a collection name is specified for
+<strong>cache</strong> in a call to gss_store_cred_into(), an existing cache for
+the client principal within the collection will be selected, or a new
+cache will be created within the collection.  If <em>overwrite_cred</em> is
+false and the selected credential cache already exists, a
+<strong>GSS_S_DUPLICATE_ELEMENT</strong> error will be returned.  If <em>default_cred</em>
+is true, the primary cache of the collection will be switched to the
+selected cache.</p>
 </div>
 <div class="section" id="importing-and-exporting-credentials">
 <h2>Importing and exporting credentials<a class="headerlink" href="#importing-and-exporting-credentials" title="Permalink to this headline">¶</a></h2>
@@ -773,8 +779,8 @@ gss_get_mic_iov_length and gss_get_mic_iov:</p>
 
     <div class="footer-wrapper">
         <div class="footer" >
-            <div class="right" ><i>Release: 1.19.2</i><br />
-                &copy; <a href="../copyright.html">Copyright</a> 1985-2021, MIT.
+            <div class="right" ><i>Release: 1.20.1</i><br />
+                &copy; <a href="../copyright.html">Copyright</a> 1985-2022, MIT.
             </div>
             <div class="left">
                 

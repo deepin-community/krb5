@@ -55,7 +55,7 @@
 
 \title{Kerberos Administration Guide}
 \date{ }
-\release{1.19.2}
+\release{1.20.1}
 \author{MIT}
 \newcommand{\sphinxlogo}{\vbox{}}
 \renewcommand{\releasename}{Release}
@@ -1453,15 +1453,12 @@ is the Kerberos V4 realm name.
 
 \paragraph{{[}domain\_realm{]}}
 \label{\detokenize{admin/conf_files/krb5_conf:id3}}\label{\detokenize{admin/conf_files/krb5_conf:domain-realm}}
-The {[}domain\_realm{]} section provides a translation from a domain name
-or hostname to a Kerberos realm name.  The tag name can be a host name
-or domain name, where domain names are indicated by a prefix of a
-period (\sphinxcode{.}).  The value of the relation is the Kerberos realm name
-for that particular host or domain.  A host name relation implicitly
-provides the corresponding domain name relation, unless an explicit domain
-name relation is provided.  The Kerberos realm may be
+The {[}domain\_realm{]} section provides a translation from hostnames to
+Kerberos realms.  Each tag is a domain name, providing the mapping for
+that domain and all subdomains.  If the tag begins with a period
+(\sphinxcode{.}) then it applies only to subdomains.  The Kerberos realm may be
 identified either in the {\hyperref[\detokenize{admin/conf_files/krb5_conf:realms}]{\sphinxcrossref{realms}}} section or using DNS SRV records.
-Host names and domain names should be in lower case.  For example:
+Tag names should be in lower case.  For example:
 
 \fvset{hllines={, ,}}%
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
@@ -2517,6 +2514,12 @@ are not allowed as passwords.  The file should contain one string
 per line, with no additional whitespace.  If none is specified or
 if there is no policy assigned to the principal, no dictionary
 checks of passwords will be performed.
+
+\item[{\sphinxstylestrong{disable\_pac}}] \leavevmode
+(Boolean value.)  If true, the KDC will not issue PACs for this
+realm, and S4U2Self and S4U2Proxy operations will be disabled.
+The default is false, which will permit the KDC to issue PACs.
+New in release 1.20.
 
 \item[{\sphinxstylestrong{encrypted\_challenge\_indicator}}] \leavevmode
 (String.)  Specifies the authentication indicator value that the KDC
@@ -6330,7 +6333,7 @@ read access, account lockout will not function.
 \item {} 
 Make sure the LDAP server is using local authentication
 (\sphinxcode{ldapi://}) or TLS (\sphinxcode{ldaps}).  See
-\sphinxurl{https://www.openldap.org/doc/admin24/tls.html} for instructions on
+\sphinxurl{https://www.openldap.org/doc/admin/tls.html} for instructions on
 configuring TLS support in OpenLDAP.
 
 \item {} 
@@ -6456,7 +6459,7 @@ information related to multiple realms.
 \item {} 
 Add an \sphinxcode{eq} index for \sphinxcode{krbPrincipalName} to speed up principal
 lookup operations.  See
-\sphinxurl{https://www.openldap.org/doc/admin24/tuning.html\#Indexes} for
+\sphinxurl{https://www.openldap.org/doc/admin/tuning.html\#Indexes} for
 details.
 
 \end{enumerate}
@@ -7826,6 +7829,15 @@ any key in its keytab when accepting a connection, rather than looking
 for the keytab entry that matches the host’s own idea of its name
 (typically the name that \sphinxcode{gethostname()} returns).  This requires
 krb5-1.10 or later.
+
+
+\subsection{OpenLDAP (ldapsearch, etc.)}
+\label{\detokenize{admin/princ_dns:openldap-ldapsearch-etc}}
+OpenLDAP’s SASL implementation performs reverse DNS lookup in order to
+canonicalize service principal names, even if \sphinxstylestrong{rdns} is set to
+\sphinxcode{false} in the Kerberos configuration.  To disable this behavior,
+add \sphinxcode{SASL\_NOCANON on} to \sphinxcode{ldap.conf}, or set the
+\sphinxcode{LDAPSASL\_NOCANON} environment variable.
 
 
 \chapter{Encryption types}
@@ -10952,7 +10964,7 @@ Aliases: \sphinxstylestrong{exit}, \sphinxstylestrong{q}
 \PYG{n}{ktutil}\PYG{p}{:}  \PYG{n}{add\PYGZus{}entry} \PYG{o}{\PYGZhy{}}\PYG{n}{password} \PYG{o}{\PYGZhy{}}\PYG{n}{p} \PYG{n}{alice}\PYG{n+nd}{@BLEEP}\PYG{o}{.}\PYG{n}{COM} \PYG{o}{\PYGZhy{}}\PYG{n}{k} \PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}}\PYG{n}{e}
     \PYG{n}{aes256}\PYG{o}{\PYGZhy{}}\PYG{n}{cts}\PYG{o}{\PYGZhy{}}\PYG{n}{hmac}\PYG{o}{\PYGZhy{}}\PYG{n}{sha1}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{96}
 \PYG{n}{Password} \PYG{k}{for} \PYG{n}{alice}\PYG{n+nd}{@BLEEP}\PYG{o}{.}\PYG{n}{COM}\PYG{p}{:}
-\PYG{n}{ktutil}\PYG{p}{:}  \PYG{n}{write\PYGZus{}kt} \PYG{n}{keytab}
+\PYG{n}{ktutil}\PYG{p}{:}  \PYG{n}{write\PYGZus{}kt} \PYG{n}{alice}\PYG{o}{.}\PYG{n}{keytab}
 \PYG{n}{ktutil}\PYG{p}{:}
 \end{sphinxVerbatim}
 \end{quote}

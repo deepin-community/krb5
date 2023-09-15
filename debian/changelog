@@ -1,8 +1,78 @@
-krb5 (1.19.2-2) UNRELEASED; urgency=medium
+krb5 (1.20.1-4) unstable; urgency=low
 
-  * update
+  [ Steve Langasek ]
+  * libkrb5support0: require strict binary dependency to deal with glibc 2.38, Closes: #1043184
 
- -- Sam Hartman <hartmans@debian.org>  Wed, 08 Jun 2022 03:54:13 -0400
+  [Jelmer Vernooij]
+  * krb5-user: Use alternatives for kinit, klist, kswitch, ksu, kpasswd,
+    kdestroy, kadmin and ktutil. This allows installation
+    together with heimdal-clients. Closes: #213316, #751203
+
+  [ Sam Hartman ]
+  * Enable build-time tests, Thanks Andreas Hasenack, Closes: #1017763
+  * Work around doxygen change that breaks doc build, Thanks Greg
+    Hudson, Closes: #1051523
+
+ -- Sam Hartman <hartmans@debian.org>  Mon, 11 Sep 2023 11:06:57 -0600
+
+krb5 (1.20.1-3) unstable; urgency=high
+
+  * Fixes CVE-2023-36054: a  remote authenticated attacker can cause
+    kadmind to free an uninitialized pointer.  Upstream believes remote
+    code execusion is unlikely, Closes: #1043431 
+
+ -- Sam Hartman <hartmans@debian.org>  Mon, 14 Aug 2023 14:06:53 -0600
+
+krb5 (1.20.1-2) unstable; urgency=medium
+
+  * Tighten dependencies on libkrb5support0.  This means that the entire
+    upgrade from bullseye to bookworm needs to be lockstep, but it appears
+    that's what is required, Closes: #1036055
+  
+
+ -- Sam Hartman <hartmans@debian.org>  Mon, 15 May 2023 17:44:41 -0600
+
+krb5 (1.20.1-1) unstable; urgency=high
+
+  [ Bastian Germann ]
+  * Sync debian/copyright with NOTICE from upstream
+
+  [ Debian Janitor ]
+  * Trim trailing whitespace.
+  * Strip unusual field spacing from debian/control.
+  * Use secure URI in Homepage field.
+  * Merge upstream signing key files.
+  * Update renamed lintian tag names in lintian overrides.
+  * Update standards version to 4.6.1, no changes needed.
+  * Remove field Section on binary package krb5-gss-samples that
+    duplicates source.
+  * Fix field name cases in debian/control (VCS-Browser => Vcs-Browser,
+    VCS-Git => Vcs-Git).
+
+  [ Sam Hartman ]
+  * New upstream release
+    - Integer overflows in PAC parsing; potentially critical for 32-bit
+    KDCs or when cross-realm acts maliciously; DOS in other conditions;
+    CVE-2022-42898, Closes: #1024267
+  * Tighten version dependencies around crypto library, Closes: 1020424
+  * krb5-user reccomends rather than Depends on krb5-config.  This avoids
+    a hard dependency on bind9-host, but also supports cases where
+    krb5-config is externally managed, Closes: #1005821
+
+ -- Sam Hartman <hartmans@debian.org>  Thu, 17 Nov 2022 10:34:28 -0700
+
+krb5 (1.20-1) unstable; urgency=medium
+
+  * New Upstream Version
+  * Do not specify master key type to avoid weak crypto, Closes: #1009927
+
+ -- Sam Hartman <hartmans@debian.org>  Fri, 22 Jul 2022 16:32:38 -0600
+
+krb5 (1.20~beta1-1) experimental; urgency=medium
+
+  * New Upstream version
+
+ -- Sam Hartman <hartmans@debian.org>  Thu, 07 Apr 2022 11:57:27 -0600
 
 krb5 (1.19.2-2) unstable; urgency=medium
 
@@ -17,7 +87,7 @@ krb5 (1.19.2-1) experimental; urgency=medium
   * New Upstream version
   * Include patch to work with OpenSSL 3.0, Closes: #995152
   * Depend on tex-gyre, Closes: #997407
-    
+
  -- Sam Hartman <hartmans@debian.org>  Wed, 27 Oct 2021 14:04:42 -0600
 
 krb5 (1.18.3-7) unstable; urgency=medium
@@ -87,7 +157,7 @@ krb5 (1.18.2-1) experimental; urgency=medium
     - Fix input length checking in SPNEGO DER decoding
     - Set lockdown attribute when creating LDAP KDB
     - Add recursion limit for ASN.1 indefinite lengths (CVE-2020-28196,
-    Closes: #973880) 
+    Closes: #973880)
   * Release new upstream to experimental
 
  -- Sam Hartman <hartmans@debian.org>  Mon, 09 Nov 2020 16:28:52 -0500
@@ -2746,5 +2816,3 @@ krb5 (1.2.1-1) unstable; urgency=low
   * Initial Release.
 
  -- Sam Hartman <hartmans@permabit.com>  Thu, 19 Oct 2000 16:05:06 -0400
-
-
