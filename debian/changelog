@@ -1,3 +1,13 @@
+krb5 (1.20.1-5) unstable; urgency=medium
+
+  [ Helmut Grohne ]
+  * Annotate test dependencies <!nocheck>. (Closes: #1054461)
+
+  [ Sam Hartman ]
+  * Fix keyutils to be linux-any
+
+ -- Helmut Grohne <helmut@subdivi.de>  Tue, 24 Oct 2023 07:17:27 +0200
+
 krb5 (1.20.1-4) unstable; urgency=low
 
   [ Steve Langasek ]
