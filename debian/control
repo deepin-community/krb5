@@ -19,7 +19,7 @@ Build-Depends-Indep: doxygen,
                      python3-lxml,
                      python3-sphinx,
                      tex-gyre
-Build-Depends-Arch: keyutils, libcmocka-dev, python3-kdcproxy, python3-pyrad
+Build-Depends-Arch: keyutils [linux-any] <!nocheck>, libcmocka-dev <!nocheck>, python3-kdcproxy <!nocheck>, python3-pyrad <!nocheck>
 Standards-Version: 4.6.2
 Maintainer: Sam Hartman <hartmans@debian.org>
 Uploaders: Russ Allbery <rra@debian.org>, Benjamin Kaduk <kaduk@mit.edu>
