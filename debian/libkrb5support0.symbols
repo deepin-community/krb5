@@ -7,6 +7,7 @@ libkrb5support.so.0 libkrb5support0 (= ${binary:Version})
  k5_buf_add_fmt@krb5support_0_MIT 1.12~alpha1+dfsg
  k5_buf_add_len@krb5support_0_MIT 1.12~alpha1+dfsg
  k5_buf_add_vfmt@krb5support_0_MIT 1.17
+ k5_buf_cstring@krb5support_0_MIT 1.21.2
  k5_buf_free@krb5support_0_MIT 1.13~alpha1+dfsg
  k5_buf_get_space@krb5support_0_MIT 1.13~alpha1+dfsg
  k5_buf_init_dynamic@krb5support_0_MIT 1.12~alpha1+dfsg
@@ -98,7 +99,6 @@ libkrb5support.so.0 libkrb5support0 (= ${binary:Version})
  krb5int_ucs4_to_utf8@krb5support_0_MIT 1.7dfsg~beta2
  krb5int_utf8_lentab@krb5support_0_MIT 1.7dfsg~beta2
  krb5int_utf8_mintab@krb5support_0_MIT 1.7dfsg~beta2
- krb5int_utf8_next@krb5support_0_MIT 1.7dfsg~beta2
  krb5int_utf8_to_ucs4@krb5support_0_MIT 1.7dfsg~beta2
  krb5int_zap@krb5support_0_MIT 1.8+dfsg~alpha1
  krb5support_0_MIT@krb5support_0_MIT 1.7dfsg~beta2
