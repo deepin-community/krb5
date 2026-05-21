@@ -1,3 +1,4 @@
+usr/lib/*/krb5/plugins/kdb/klmdb.so
 usr/lib/*/krb5/plugins/kdb/db2.so
 usr/sbin/kdb5_util
 usr/sbin/kproplog
