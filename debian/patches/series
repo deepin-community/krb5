@@ -9,3 +9,5 @@ debian-local/0008-Use-isystem-for-include-paths.patch
 0009-Add-.gitignore.patch
 upstream/0010-Ensure-array-count-consistency-in-kadm5-RPC.patch
 upstream/0011-Work-around-Doxygen-1.9.7-change.patch
+upstream/CVE-2026-40355-fix-null-deref-in-negoex-parse.patch
+upstream/CVE-2026-40356-fix-read-overrun-in-negoex-parse.patch
