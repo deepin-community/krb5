@@ -1,3 +1,12 @@
+krb5 (1.20.1-5deepin2) unstable; urgency=medium
+
+  * Fix CVE-2026-40355: null pointer dereference in NegoEx parsing
+    Upstream commit:
+    https://github.com/krb5/krb5/commit/2e75f0d9362fb979f5fc92829431a590
+    a130929f
+
+ -- deepin-ci-robot <packages@deepin.org>  Thu, 11 Jun 2026 22:30:36 +0800
+
 krb5 (1.20.1-5deepin1) unstable; urgency=medium
 
   * chore: build add nocheck option support
