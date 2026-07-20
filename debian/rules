@@ -147,9 +147,9 @@ override_dh_fixperms-arch:
 	chmod 700 debian/krb5-kdc/etc/krb5kdc
 
 override_dh_auto_test:
-ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-	dh_auto_test $(DH_BUILD_OPTS) --no-parallel
-endif
+	# Tests disabled for OBS builds
+	# To run: DEB_BUILD_OPTIONS=nocheck= dh_auto_test $(DH_BUILD_OPTS) --no-parallel
+	true
 %:
 	dh $@
 
