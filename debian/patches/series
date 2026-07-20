@@ -1,3 +1,4 @@
+CVE-2026-11850.patch
 debian-local/0001-Debian-HURD-compatibility.patch
 debian-local/0002-debian-Handle-multi-arch-paths-in-krb5-config.patch
 debian-local/0003-debian-osconf.hin-path-changes.patch

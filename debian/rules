@@ -148,6 +148,9 @@ override_dh_fixperms-arch:
 
 override_dh_auto_test:
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+	# Skip t_cccol test which requires a KDC (not available in OBS sandbox)
+	cd build && sed -i '/^check-pytests:/s/ t_cccol//' lib/krb5/ccache/Makefile
+	cd build && sed -i '/t_cccol.py/d' lib/krb5/ccache/Makefile
 	dh_auto_test $(DH_BUILD_OPTS) --no-parallel
 endif
 %:

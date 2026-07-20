@@ -1,3 +1,10 @@
+krb5 (1.20.1-5deepin2) unstable; urgency=high
+
+  * Fix CVE-2026-11850: integer underflow in berval2tl_data() in LDAP KDB plugin
+    (Closes: CVE-2026-11850)
+
+ -- deepin-ci-robot <packages@deepin.org>  Fri, 10 Jul 2026 02:57:38 +0800
+
 krb5 (1.20.1-5deepin1) unstable; urgency=medium
 
   * chore: build add nocheck option support
