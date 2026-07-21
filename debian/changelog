@@ -1,3 +1,9 @@
+krb5 (1.20.1-5deepin4) unstable; urgency=medium
+
+  * fix(cve): CVE-2026-11850
+
+ -- deepin-ci-robot <packages@deepin.org>  Tue, 21 Jul 2026 08:19:22 +0800
+
 krb5 (1.20.1-5deepin3) unstable; urgency=medium
 
   * Fix CVE-2026-40356: read overrun in NegoEx parsing  Upstream commit:
