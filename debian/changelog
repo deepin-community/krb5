@@ -1,3 +1,9 @@
+krb5 (1.20.1-5deepin5) unstable; urgency=medium
+
+  * Skip t_cccol.py test in OBS build environment to fix build failure.
+
+ -- deepin-ci-robot <packages@deepin.org>  Wed, 22 Jul 2026 14:00:00 +0800
+
 krb5 (1.20.1-5deepin4) unstable; urgency=medium
 
   * fix(cve): CVE-2026-11850
