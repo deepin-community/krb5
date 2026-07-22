@@ -1,3 +1,32 @@
+krb5 (1.20.1-5deepin5) unstable; urgency=medium
+
+  * Skip t_cccol.py test in OBS build environment to fix build failure.
+
+ -- deepin-ci-robot <packages@deepin.org>  Wed, 22 Jul 2026 14:00:00 +0800
+
+krb5 (1.20.1-5deepin4) unstable; urgency=medium
+
+  * fix(cve): CVE-2026-11850
+
+ -- deepin-ci-robot <packages@deepin.org>  Tue, 21 Jul 2026 08:19:22 +0800
+
+krb5 (1.20.1-5deepin3) unstable; urgency=medium
+
+  * Fix CVE-2026-40356: read overrun in NegoEx parsing  Upstream commit:
+    https://github.com/krb5/krb5/commit/2e75f0d9362fb979f5fc92829431a590
+    a130929f
+
+ -- deepin-ci-robot <packages@deepin.org>  Thu, 11 Jun 2026 22:30:53 +0800
+
+krb5 (1.20.1-5deepin2) unstable; urgency=medium
+
+  * Fix CVE-2026-40355: null pointer dereference in NegoEx parsing
+    Upstream commit:
+    https://github.com/krb5/krb5/commit/2e75f0d9362fb979f5fc92829431a590
+    a130929f
+
+ -- deepin-ci-robot <packages@deepin.org>  Thu, 11 Jun 2026 22:30:36 +0800
+
 krb5 (1.20.1-5deepin1) unstable; urgency=medium
 
   * chore: build add nocheck option support
