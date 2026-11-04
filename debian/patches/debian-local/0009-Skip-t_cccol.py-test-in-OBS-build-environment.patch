@@ -8,9 +8,12 @@ diff --git a/src/lib/krb5/ccache/Makefile.in b/src/lib/krb5/ccache/Makefile.in
 index 7346854..a3b1c7e 100644
 --- a/src/lib/krb5/ccache/Makefile.in
 +++ b/src/lib/krb5/ccache/Makefile.in
-@@ -147,6 +147,6 @@ check-unix: t_cc t_marshal
+@@ -145,7 +145,7 @@ check-unix: t_cc t_marshal
  	$(RUN_TEST) ./t_marshal testcache
  
  check-pytests: t_cccursor t_cccol
 -	$(RUNPYTEST) $(srcdir)/t_cccol.py $(PYTESTFLAGS)
 +	$(RUNPYTEST) $(srcdir)/t_cccol.py $(PYTESTFLAGS) || true
+ 
+ clean-unix::
+ 	$(RM) t_cc t_cc.o t_cccursor t_cccursor.o t_cccol t_cccol.o
