@@ -17,6 +17,10 @@ krb5 (1.20.1-5deepin5) unstable; urgency=medium
     krb5_ktkdb_get_entry()   Upstream:
     https://github.com/krb5/krb5/commit/5d79291d7d6732b31a759493a5c0365e
     d208521a
+  * fix(cve): CVE-2026-107708 (medium) - Fix error handling in KDC PAC
+    processing   Upstream:
+    https://github.com/krb5/krb5/commit/f6e2c397ceda6467ebbaab8ed66d4895
+    c9f1d6a7
 
  -- deepin-ci-robot <packages@deepin.org>  Wed, 22 Jul 2026 14:00:00 +0800
 
