@@ -16,6 +16,10 @@ krb5 (1.20.1-5deepin6) unstable; urgency=medium
     krb5_rd_cred()   Upstream:
     https://github.com/krb5/krb5/commit/48afa9abb89ab2176bb20624d87d010b
     9984fc08
+  * fix(cve): CVE-2026-112321 (high) - Free call_arg on all AUTH_GSSAPI
+    exit paths   Upstream:
+    https://github.com/krb5/krb5/commit/89ea06778fe893a8fdad483f7716fe83
+    09521603
 
  -- deepin-ci-robot <packages@deepin.org>  Mon, 23 Nov 2026 15:01:24 +0800
 
