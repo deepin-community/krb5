@@ -1,3 +1,9 @@
+krb5 (1.20.1-5deepin6) UNRELEASED; urgency=medium
+
+  * Trigger build
+
+ -- Tianyu Chen <sweetyfish@deepin.org>  Mon, 23 Nov 2026 16:27:07 +0800
+
 krb5 (1.20.1-5deepin5) unstable; urgency=medium
 
   * Skip t_cccol.py test in OBS build environment to fix build failure.
