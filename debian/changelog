@@ -25,6 +25,10 @@ krb5 (1.20.1-5deepin5) unstable; urgency=medium
     ASN.1 decoder   Upstream:
     https://github.com/krb5/krb5/commit/cf44b0658832871f739d5074e7d27288
     b2718bfb
+  * fix(cve): CVE-2026-118380 (unknown) - Properly verify RPCSEC_GSS
+    call arguments   Upstream:
+    https://github.com/krb5/krb5/commit/2cda39a6c0a2ee19b7cdd811e07d5645
+    06388fe3
 
  -- deepin-ci-robot <packages@deepin.org>  Wed, 22 Jul 2026 14:00:00 +0800
 
