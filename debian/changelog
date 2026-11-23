@@ -28,6 +28,10 @@ krb5 (1.20.1-5deepin6) unstable; urgency=medium
     kadmind server stubs   Upstream:
     https://github.com/krb5/krb5/commit/407e75e927c1870161305d3288cc0205
     e9ff067b
+  * fix(cve): CVE-2026-112316 (medium) - Free partial tl-data on XDR
+    decode failure   Upstream:
+    https://github.com/krb5/krb5/commit/fe0a8a67f2fce89bb9d62031219a1f5a
+    064c4df1
 
  -- deepin-ci-robot <packages@deepin.org>  Mon, 23 Nov 2026 15:01:24 +0800
 
