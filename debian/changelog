@@ -4,6 +4,10 @@ krb5 (1.20.1-5deepin6) unstable; urgency=medium
     decoding ASN.1   Upstream:
     https://github.com/krb5/krb5/commit/782e5ac4fb1496a79de0b87e1fc485f8
     97e97d6d
+  * fix(cve): CVE-2026-112314 (high) - Fix leak in RPC client on
+    mismatched ID   Upstream:
+    https://github.com/krb5/krb5/commit/aac40ec59fd4ffa126e19749e85ddb91
+    3892fe53
 
  -- deepin-ci-robot <packages@deepin.org>  Mon, 23 Nov 2026 15:01:24 +0800
 
