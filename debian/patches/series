@@ -14,3 +14,4 @@ upstream/CVE-2026-40356-fix-read-overrun-in-negoex-parse.patch
 CVE-2026-11850.patch
 debian-local/0009-Skip-t_cccol.py-test-in-OBS-build-environment.patch
 CVE-2024-26461.patch
+CVE-2026-119079.patch

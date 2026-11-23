@@ -1,3 +1,12 @@
+krb5 (1.20.1-5deepin6) unstable; urgency=medium
+
+  * fix(cve): CVE-2026-119079 (high) - Avoid repeated reallocation when
+    decoding ASN.1   Upstream:
+    https://github.com/krb5/krb5/commit/782e5ac4fb1496a79de0b87e1fc485f8
+    97e97d6d
+
+ -- deepin-ci-robot <packages@deepin.org>  Mon, 23 Nov 2026 15:01:24 +0800
+
 krb5 (1.20.1-5deepin5) unstable; urgency=medium
 
   * Skip t_cccol.py test in OBS build environment to fix build failure.
