@@ -24,6 +24,10 @@ krb5 (1.20.1-5deepin6) unstable; urgency=medium
     from RPCSEC_GSS   Upstream:
     https://github.com/krb5/krb5/commit/c4288c4a2fd477f60b9390ca5a7db442
     055e679b
+  * fix(cve): CVE-2026-112318 (medium) - Prevent null dereferences in
+    kadmind server stubs   Upstream:
+    https://github.com/krb5/krb5/commit/407e75e927c1870161305d3288cc0205
+    e9ff067b
 
  -- deepin-ci-robot <packages@deepin.org>  Mon, 23 Nov 2026 15:01:24 +0800
 
