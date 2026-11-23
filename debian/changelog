@@ -20,6 +20,10 @@ krb5 (1.20.1-5deepin6) unstable; urgency=medium
     exit paths   Upstream:
     https://github.com/krb5/krb5/commit/89ea06778fe893a8fdad483f7716fe83
     09521603
+  * fix(cve): CVE-2026-112320 (high) - Fix RPC leak when client switches
+    from RPCSEC_GSS   Upstream:
+    https://github.com/krb5/krb5/commit/c4288c4a2fd477f60b9390ca5a7db442
+    055e679b
 
  -- deepin-ci-robot <packages@deepin.org>  Mon, 23 Nov 2026 15:01:24 +0800
 
