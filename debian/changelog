@@ -9,6 +9,10 @@ krb5 (1.20.1-5deepin5) unstable; urgency=medium
     Upstream:
     https://github.com/krb5/krb5/commit/6946435bc3e66b1cccef0c41105bbd1e
     7f8c1a92
+  * fix(cve): CVE-2026-112315 (medium) - Fix leaks when decoding GSS
+    buffers in libgssrpc   Upstream:
+    https://github.com/krb5/krb5/commit/cc82b42ce92e2d11be09f69e40795c3c
+    061dd990
 
  -- deepin-ci-robot <packages@deepin.org>  Wed, 22 Jul 2026 14:00:00 +0800
 
