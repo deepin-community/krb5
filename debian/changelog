@@ -5,6 +5,10 @@ krb5 (1.20.1-5deepin5) unstable; urgency=medium
     Upstream:
     https://github.com/krb5/krb5/commit/c5f9c816107f70139de11b38aa02db2f
     1774ee0d
+  * fix(cve): CVE-2026-112319 (medium) - Enforce XDR decode size limits
+    Upstream:
+    https://github.com/krb5/krb5/commit/6946435bc3e66b1cccef0c41105bbd1e
+    7f8c1a92
 
  -- deepin-ci-robot <packages@deepin.org>  Wed, 22 Jul 2026 14:00:00 +0800
 
