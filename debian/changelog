@@ -29,6 +29,10 @@ krb5 (1.20.1-5deepin5) unstable; urgency=medium
     call arguments   Upstream:
     https://github.com/krb5/krb5/commit/2cda39a6c0a2ee19b7cdd811e07d5645
     06388fe3
+  * fix(cve): CVE-2026-71199 (unknown) - Check for keyed checksums in
+    CAMMAC verifiers   Upstream:
+    https://github.com/krb5/krb5/commit/18142c9c3a3c2e16d8469aff342b02a2
+    8f0b468c
 
  -- deepin-ci-robot <packages@deepin.org>  Wed, 22 Jul 2026 14:00:00 +0800
 
