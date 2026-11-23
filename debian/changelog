@@ -8,6 +8,10 @@ krb5 (1.20.1-5deepin6) unstable; urgency=medium
     mismatched ID   Upstream:
     https://github.com/krb5/krb5/commit/aac40ec59fd4ffa126e19749e85ddb91
     3892fe53
+  * fix(cve): CVE-2026-112322 (high) - Disable GSSRPC AUTH_GSSAPI flavor
+    by default   Upstream:
+    https://github.com/krb5/krb5/commit/8aab893c6eb17125e1518f9926bc3593
+    cf19303c
 
  -- deepin-ci-robot <packages@deepin.org>  Mon, 23 Nov 2026 15:01:24 +0800
 
