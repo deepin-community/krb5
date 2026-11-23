@@ -12,6 +12,10 @@ krb5 (1.20.1-5deepin6) unstable; urgency=medium
     by default   Upstream:
     https://github.com/krb5/krb5/commit/8aab893c6eb17125e1518f9926bc3593
     cf19303c
+  * fix(cve): CVE-2026-107778 (high) - Avoid null dereference in
+    krb5_rd_cred()   Upstream:
+    https://github.com/krb5/krb5/commit/48afa9abb89ab2176bb20624d87d010b
+    9984fc08
 
  -- deepin-ci-robot <packages@deepin.org>  Mon, 23 Nov 2026 15:01:24 +0800
 
