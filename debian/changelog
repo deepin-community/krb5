@@ -37,6 +37,10 @@ krb5 (1.20.1-5deepin5) unstable; urgency=medium
     PKINIT CMS processing   Upstream:
     https://github.com/krb5/krb5/commit/6a5d772002c1764bd14934ccb6684f0c
     ce15d617
+  * fix(cve): CVE-2026-107884 (unknown) - Enforce lockdown bit in
+    password change server   Upstream:
+    https://github.com/krb5/krb5/commit/d8248074bbd5c87d6415cba5dbb604a6
+    68197e28
 
  -- deepin-ci-robot <packages@deepin.org>  Wed, 22 Jul 2026 14:00:00 +0800
 
