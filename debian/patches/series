@@ -16,3 +16,4 @@ debian-local/0009-Skip-t_cccol.py-test-in-OBS-build-environment.patch
 CVE-2024-26461.patch
 CVE-2026-112319.patch
 CVE-2026-112315.patch
+CVE-2026-112317.patch
