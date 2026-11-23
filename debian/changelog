@@ -21,6 +21,10 @@ krb5 (1.20.1-5deepin5) unstable; urgency=medium
     processing   Upstream:
     https://github.com/krb5/krb5/commit/f6e2c397ceda6467ebbaab8ed66d4895
     c9f1d6a7
+  * fix(cve): CVE-2026-107364 (unknown) - Prevent KDC read overrun in
+    ASN.1 decoder   Upstream:
+    https://github.com/krb5/krb5/commit/cf44b0658832871f739d5074e7d27288
+    b2718bfb
 
  -- deepin-ci-robot <packages@deepin.org>  Wed, 22 Jul 2026 14:00:00 +0800
 
