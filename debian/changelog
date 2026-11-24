@@ -1,3 +1,106 @@
+krb5 (1.20.1-5deepin6) unstable; urgency=medium
+
+  * fix(cve): CVE-2026-119079 (high) - Avoid repeated reallocation when
+    decoding ASN.1
+    Upstream:
+    https://github.com/krb5/krb5/commit/782e5ac4fb1496a79de0b87e1fc485f8
+    97e97d6d
+
+  * fix(cve): CVE-2026-112314 (high) - Fix leak in RPC client on mismatched ID
+    Upstream:
+    https://github.com/krb5/krb5/commit/aac40ec59fd4ffa126e19749e85ddb91
+    3892fe53
+
+  * fix(cve): CVE-2026-112322 (high) - Disable GSSRPC AUTH_GSSAPI flavor by
+    default
+    Upstream:
+    https://github.com/krb5/krb5/commit/8aab893c6eb17125e1518f9926bc3593
+    cf19303c
+
+  * fix(cve): CVE-2026-107778 (high) - Avoid null dereference in krb5_rd_cred()
+    Upstream:
+    https://github.com/krb5/krb5/commit/48afa9abb89ab2176bb20624d87d010b
+    9984fc08
+
+  * fix(cve): CVE-2026-112321 (high) - Free call_arg on all AUTH_GSSAPI exit
+    paths
+    Upstream:
+    https://github.com/krb5/krb5/commit/89ea06778fe893a8fdad483f7716fe83
+    09521603
+
+  * fix(cve): CVE-2026-112320 (high) - Fix RPC leak when client switches from
+    RPCSEC_GSS
+    Upstream:
+    https://github.com/krb5/krb5/commit/c4288c4a2fd477f60b9390ca5a7db442
+    055e679b
+
+  * fix(cve): CVE-2026-112318 (medium) - Prevent null dereferences in kadmind
+    server stubs
+    Upstream:
+    https://github.com/krb5/krb5/commit/407e75e927c1870161305d3288cc0205
+    e9ff067b
+
+  * fix(cve): CVE-2026-112319 (medium) - Enforce XDR decode size limits
+    Upstream:
+    https://github.com/krb5/krb5/commit/6946435bc3e66b1cccef0c41105bbd1e
+    7f8c1a92
+
+  * fix(cve): CVE-2026-112316 (medium) - Free partial tl-data on XDR decode
+    failure
+    Upstream:
+    https://github.com/krb5/krb5/commit/fe0a8a67f2fce89bb9d62031219a1f5a
+    064c4df1
+
+  * fix(cve): CVE-2026-112315 (medium) - Fix leaks when decoding GSS buffers in
+    libgssrpc
+    Upstream:
+    https://github.com/krb5/krb5/commit/cc82b42ce92e2d11be09f69e40795c3c
+    061dd990
+
+  * fix(cve): CVE-2026-112317 (medium) - Fix leak on error in
+    krb5_ktkdb_get_entry()
+    Upstream:
+    https://github.com/krb5/krb5/commit/5d79291d7d6732b31a759493a5c0365e
+    d208521a
+
+  * fix(cve): CVE-2026-107708 (medium) - Fix error handling in KDC PAC
+    processing
+    Upstream:
+    https://github.com/krb5/krb5/commit/f6e2c397ceda6467ebbaab8ed66d4895
+    c9f1d6a7
+
+  * fix(cve): CVE-2026-71200 (medium) - Prevent null dereference in PKINIT CMS
+    processing
+    Upstream:
+    https://github.com/krb5/krb5/commit/6a5d772002c1764bd14934ccb6684f0c
+    ce15d617
+
+  * fix(cve): CVE-2026-107364 (unknown) - Prevent KDC read overrun in ASN.1
+    decoder
+    Upstream:
+    https://github.com/krb5/krb5/commit/cf44b0658832871f739d5074e7d27288
+    b2718bfb
+
+  * fix(cve): CVE-2026-118380 (unknown) - Properly verify RPCSEC_GSS call
+    arguments
+    Upstream:
+    https://github.com/krb5/krb5/commit/2cda39a6c0a2ee19b7cdd811e07d5645
+    06388fe3
+
+  * fix(cve): CVE-2026-71199 (unknown) - Check for keyed checksums in CAMMAC
+    verifiers
+    Upstream:
+    https://github.com/krb5/krb5/commit/18142c9c3a3c2e16d8469aff342b02a2
+    8f0b468c
+
+  * fix(cve): CVE-2026-107884 (unknown) - Enforce lockdown bit in password
+    change server
+    Upstream:
+    https://github.com/krb5/krb5/commit/d8248074bbd5c87d6415cba5dbb604a6
+    68197e28
+
+ -- deepin-ci-robot <packages@deepin.org>  Tue, 24 Nov 2026 09:20:00 +0800
+
 krb5 (1.20.1-5deepin5) unstable; urgency=medium
 
   * Skip t_cccol.py test in OBS build environment to fix build failure.
@@ -5,42 +108,6 @@ krb5 (1.20.1-5deepin5) unstable; urgency=medium
     Upstream:
     https://github.com/krb5/krb5/commit/c5f9c816107f70139de11b38aa02db2f
     1774ee0d
-  * fix(cve): CVE-2026-112319 (medium) - Enforce XDR decode size limits
-    Upstream:
-    https://github.com/krb5/krb5/commit/6946435bc3e66b1cccef0c41105bbd1e
-    7f8c1a92
-  * fix(cve): CVE-2026-112315 (medium) - Fix leaks when decoding GSS
-    buffers in libgssrpc   Upstream:
-    https://github.com/krb5/krb5/commit/cc82b42ce92e2d11be09f69e40795c3c
-    061dd990
-  * fix(cve): CVE-2026-112317 (medium) - Fix leak on error in
-    krb5_ktkdb_get_entry()   Upstream:
-    https://github.com/krb5/krb5/commit/5d79291d7d6732b31a759493a5c0365e
-    d208521a
-  * fix(cve): CVE-2026-107708 (medium) - Fix error handling in KDC PAC
-    processing   Upstream:
-    https://github.com/krb5/krb5/commit/f6e2c397ceda6467ebbaab8ed66d4895
-    c9f1d6a7
-  * fix(cve): CVE-2026-107364 (unknown) - Prevent KDC read overrun in
-    ASN.1 decoder   Upstream:
-    https://github.com/krb5/krb5/commit/cf44b0658832871f739d5074e7d27288
-    b2718bfb
-  * fix(cve): CVE-2026-118380 (unknown) - Properly verify RPCSEC_GSS
-    call arguments   Upstream:
-    https://github.com/krb5/krb5/commit/2cda39a6c0a2ee19b7cdd811e07d5645
-    06388fe3
-  * fix(cve): CVE-2026-71199 (unknown) - Check for keyed checksums in
-    CAMMAC verifiers   Upstream:
-    https://github.com/krb5/krb5/commit/18142c9c3a3c2e16d8469aff342b02a2
-    8f0b468c
-  * fix(cve): CVE-2026-71200 (medium) - Prevent null dereference in
-    PKINIT CMS processing   Upstream:
-    https://github.com/krb5/krb5/commit/6a5d772002c1764bd14934ccb6684f0c
-    ce15d617
-  * fix(cve): CVE-2026-107884 (unknown) - Enforce lockdown bit in
-    password change server   Upstream:
-    https://github.com/krb5/krb5/commit/d8248074bbd5c87d6415cba5dbb604a6
-    68197e28
 
  -- deepin-ci-robot <packages@deepin.org>  Wed, 22 Jul 2026 14:00:00 +0800
 
