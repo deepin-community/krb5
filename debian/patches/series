@@ -31,3 +31,4 @@ CVE-2026-112321.patch
 CVE-2026-112320.patch
 CVE-2026-112318.patch
 CVE-2026-112316.patch
+debian-local/0009-Fix-t_proxy-helper-for-Python-3.12.patch
